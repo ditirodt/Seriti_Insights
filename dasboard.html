@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="sidebar-brand">
+        </div>
+        <div class="sidebar-menu">
+             <ul>
+                <li>
+                   <a href="" class="active"> <span class="fa fa-dashboard"></span>
+                    <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""> <span class="fa fa-laptop"></span>
+                     <span>UI Elemetns</span></a>
+                 </li>
+                 <li>
+                    <a href=""> <span class="fa fa-pie-chart"></span>
+                     <span>Charts</span></a>
+                 </li>
+                 <li>
+                    <a href=""> <span class="fa fa-edit"></span>
+                     <span>Forms</span></a>
+                 </li>
+                 <li> 
+                    <a href=""> <span class="fa fa-table"></span>
+                     <span>Tables</span></a>
+                 </li>
+                 <li>
+                    <a href=""> <span class="fa fa-file-text"></span>
+                     <span>Pages</span></a>
+                 </li>
+                 <li>
+                    <a href=""> <span class="fa fa-file-code-o"></span>
+                     <span>Docs</span></a>
+                 </li>
+             </ul>
+        </div>
+
+    </div>
+
+    <div class="main-content">
+        <header>
+           <h2>
+               <div class="header-title">
+                   <label for="">
+                       <span class="fa fa-bars"></span>
+                    </label>
+               </div>
+           </h2> 
+
+           <div class="search-wrapper">
+            <input type="search" placeholder="search"/>
+            <span class="fa fa-search"></span>
+        </div>
+
+        <div class="far-right">
+            <i class="fa fa-bell-o fa-lg"></i>
+            <i class="fa fa-user fa-lg"></i>
+        </div>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <h1><i class="fa fa-dashboard"></i>Dashboard</h1>
+                <p>lets see if you can build this</p>
+               <div class="home-icon">
+                  <i class="fa fa-home"><span>/</span></i><a href="#">Dashboard</a>
+               </div>
+            </div>
+
+            <div class="cards">
+                <div class="card-single">
+                    <div class="users-icon"><i class="fa fa-users fa-3x"></i>
+                    </div>
+                            <div class="card-content">
+                                <h4>USERS</h4>
+                                <span>5</span>
+                            </div>   
+                </div>
+                <div class="card-single">
+                    <div class="like-icon"><i class="fa fa-thumbs-o-up fa-3x"></i>
+                    </div>
+                            <div class="card-content">
+                                <h4>LIKES</h4>
+                                <span>5</span>
+                            </div>   
+                </div>
+                <div class="card-single">
+                    <div class="upload-icon"><i class="fa fa-files-o fa-3x"></i>
+                    </div>
+                            <div class="card-content">
+                                <h4>UPLOADS</h4>
+                                <span>5</span>
+                            </div>   
+                </div>
+                <div class="card-single">
+                    <div class="star-icon"><i class="fa fa-star fa-3x"></i>
+                    </div>
+                            <div class="card-content">
+                                <h4>STARS</h4>
+                                <span>5</span>
+                            </div>   
+                </div>
+            </div>
+
+            <div class="dash-charts">
+                <div class="chartBox">
+                    <h2>Monthly Sales</h2>
+                    <canvas id="myChart" width="400px" height="300px"></canvas>
+                    
+                </div>
+
+                <div class="chartBox">
+                    <h2>Support Requests</h2>
+                    <canvas id = "pieChart" width="400px" height="300px"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    //setup block- all dataponits, labels
+    const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    
+  ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+        label: 'My First dataset',
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+    
+        data: [65, 59, 80, 81, 56],
+    },
+    {
+        label: 'second data',
+        fillColor: "rgba(151,187,205,0.2)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: [27, 49, 40, 20, 85]
+    }
+    ]
+  };
+
+    const config = {
+        type: 'line',
+        data,
+        options: {
+            legend:{
+                display: false
+            }
+        }
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const datapie = {
+    labels: ['January','February'],
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: ['rgb(23,162,184)',
+                        ' rgb(148,42,0)'
+                        ],
+    
+      data: [300,50],
+        }]
+    };
+    const configpie = {
+        type: 'pie',
+        data: datapie,
+        options: {
+            legend:{
+                display: false
+            }
+        }
+    };
+    const pieChart = new Chart(
+        document.getElementById('pieChart'),
+        configpie
+    );
+
+  
+
+    
+    
+    </script>
+
+    
+</body>
+</html>
